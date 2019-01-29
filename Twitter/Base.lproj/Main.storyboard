@@ -10,17 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="hF9-8N-DN8">
             <objects>
-                <viewController id="4Ks-dy-Rab" sceneMemberID="viewController">
+                <viewController id="4Ks-dy-Rab" customClass="LoginViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dYT-cg-9fu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gj9-IE-2Ce">
-                                <rect key="frame" x="108" y="307" width="159" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gj9-IE-2Ce">
+                                <rect key="frame" x="147" y="307" width="81" height="53"/>
                                 <color key="backgroundColor" red="0.30004277829999998" green="0.61662679909999996" blue="0.9216079116" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="Login">
@@ -29,8 +28,15 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Gj9-IE-2Ce" firstAttribute="centerY" secondItem="dYT-cg-9fu" secondAttribute="centerY" id="A43-d4-dAu"/>
+                            <constraint firstItem="Gj9-IE-2Ce" firstAttribute="centerX" secondItem="dYT-cg-9fu" secondAttribute="centerX" id="dhR-iQ-k60"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PlT-Zs-X5c"/>
                     </view>
+                    <connections>
+                        <segue destination="Icq-Kl-5e3" kind="presentation" identifier="loginToHome" id="JTW-as-qbH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lwJ-iP-a3i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
