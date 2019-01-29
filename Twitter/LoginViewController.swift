@@ -9,13 +9,23 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var loginBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func onLoginClick(_ sender: Any) {
+        
+        let loginURL = "https://api.twitter.com/oauth/request_token"
+        TwitterAPICaller.client?.login(url: loginURL, success: {
+            self.performSegue(withIdentifier: "loginToHome", sender: self)
+        }, failure: { (Error) in
+            print ("Failed")
+        })
+    }
+    
     /*
     // MARK: - Navigation
 
