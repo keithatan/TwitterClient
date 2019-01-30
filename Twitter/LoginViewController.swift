@@ -12,14 +12,20 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "loggedIn") == true {
+            self.performSegue(withIdentifier: "loginToHome", sender: self)
+        }
     }
     
     @IBAction func onLoginClick(_ sender: Any) {
         
         let loginURL = "https://api.twitter.com/oauth/request_token"
         TwitterAPICaller.client?.login(url: loginURL, success: {
+            UserDefaults.standard.set(true, forKey: "loggedIn")
             self.performSegue(withIdentifier: "loginToHome", sender: self)
         }, failure: { (Error) in
             print ("Failed")
