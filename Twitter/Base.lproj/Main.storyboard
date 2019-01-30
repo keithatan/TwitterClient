@@ -94,7 +94,6 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="imageLabel" destination="qOA-6h-dko" id="QIp-AV-d9e"/>
                                     <outlet property="profileImageView" destination="qOA-6h-dko" id="E9G-Wb-kV0"/>
                                     <outlet property="tweetLabel" destination="vI2-aZ-sZE" id="Jft-Le-dPL"/>
                                     <outlet property="usernameLabel" destination="Zwg-Z2-cll" id="Tc1-xz-QB8"/>
