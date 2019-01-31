@@ -11,10 +11,13 @@ class HomeTableViewController: UITableViewController {
     
     var tweets = [NSDictionary]()
     var tweetNum: Int!
+    let myRefreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         loadTweets();
+        myRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
+        tableView.refreshControl = myRefreshControl
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -30,7 +33,7 @@ class HomeTableViewController: UITableViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func loadTweets(){
+    @objc func loadTweets(){
         let URL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         let myParams = ["count": 20]
         
@@ -43,6 +46,7 @@ class HomeTableViewController: UITableViewController {
             }
             
             self.tableView.reloadData();
+            self.myRefreshControl.endRefreshing();
         }, failure: { (Error) in
             print("Error")
         })
