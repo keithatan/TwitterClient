@@ -9,6 +9,8 @@ import UIKit
 
 class TweetViewController: UIViewController {
 
+    @IBOutlet weak var tweetTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,6 +18,15 @@ class TweetViewController: UIViewController {
     }
     
     @IBAction func tweet(_ sender: Any) {
+        if(!tweetTextView.text.isEmpty){
+            TwitterAPICaller.client?.postTweet(tweet: tweetTextView.text, success: {
+                self.dismiss(animated: true, completion: nil)
+            }, failure: { (Error) in
+                print("Tweet didn't post correctly")
+            })
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
         
     }
     
