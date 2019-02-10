@@ -103,6 +103,8 @@ class HomeTableViewController: UITableViewController {
         
         cell.setFavorite(tweets[indexPath.row]["favorited"] as! Bool)
         cell.tweetID = tweets[indexPath.row]["id"] as! Int
+        cell.setRetweeted(tweets[indexPath.row]["retweeted"] as! Bool)
+        
         
         return cell
     }
