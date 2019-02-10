@@ -76,21 +76,30 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vI2-aZ-sZE">
-                                            <rect key="frame" x="81" y="22" width="278" height="71"/>
+                                            <rect key="frame" x="81" y="22" width="278" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTU-mC-cEi" userLabel="favoriteBtn">
+                                            <rect key="frame" x="335" y="63.5" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="kEr-8d-WMH"/>
+                                                <constraint firstAttribute="height" constant="30" id="ziR-PQ-hJf"/>
+                                            </constraints>
+                                            <state key="normal" image="favor-icon"/>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Zwg-Z2-cll" firstAttribute="leading" secondItem="qOA-6h-dko" secondAttribute="trailing" constant="8" id="0Uh-Mh-iMB"/>
                                         <constraint firstItem="qOA-6h-dko" firstAttribute="leading" secondItem="tyg-b3-AHS" secondAttribute="leading" constant="8" id="ErP-m3-CVX"/>
                                         <constraint firstItem="vI2-aZ-sZE" firstAttribute="leading" secondItem="qOA-6h-dko" secondAttribute="trailing" constant="8" id="QK3-I5-bLy"/>
                                         <constraint firstItem="vI2-aZ-sZE" firstAttribute="trailing" secondItem="tyg-b3-AHS" secondAttribute="trailingMargin" id="SZM-hZ-qhT"/>
-                                        <constraint firstItem="vI2-aZ-sZE" firstAttribute="bottom" secondItem="tyg-b3-AHS" secondAttribute="bottomMargin" id="Xlb-1n-od4"/>
+                                        <constraint firstAttribute="bottom" secondItem="bTU-mC-cEi" secondAttribute="bottom" constant="10" id="Y2d-nj-Cwu"/>
                                         <constraint firstItem="Zwg-Z2-cll" firstAttribute="top" secondItem="tyg-b3-AHS" secondAttribute="top" id="aeB-x5-DVA"/>
                                         <constraint firstItem="vI2-aZ-sZE" firstAttribute="top" secondItem="Zwg-Z2-cll" secondAttribute="bottom" constant="2" id="rFt-73-35W"/>
                                         <constraint firstItem="qOA-6h-dko" firstAttribute="top" secondItem="tyg-b3-AHS" secondAttribute="top" constant="8" id="sOs-tj-2HA"/>
+                                        <constraint firstAttribute="trailing" secondItem="bTU-mC-cEi" secondAttribute="trailing" constant="10" id="ybY-Hv-muc"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -212,4 +221,7 @@
             <point key="canvasLocation" x="2973.5999999999999" y="-296.40179910044981"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="favor-icon" width="30" height="30"/>
+    </resources>
 </document>
