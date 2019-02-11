@@ -1,4 +1,31 @@
-# Project 3 - *Twitter Client Part 1*
+# Twitter - Part II
+
+**TwitterClient** is a basic Twitter app to view, compose, favorite, and retweet tweets.
+
+Time spent: **6** hours spent in total
+
+## User Stories
+
+The following **required** functionality is completed:
+
+- [X] User can compose a tweet. (4pts)
+- [X] User can favorite a tweet. (4pts)
+- [X] User can retweet a tweet. (2pts)
+
+The following **bonus** features are implemented:
+
+- [X] User can open a side navigation menu using a swipe gesture to see their user information
+- [ ] When composing a tweet, user sees a countdown for the number of characters remaining for the tweet (out of 140) (2pts)
+- [ ] User can view their profile in a profile tab. (3pts)
+- [ ] User sees embedded images in tweet if available. (3pts)
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='https://github.com/keithatan/TwitterClient/blob/master/TwitterPart2GIF.gif?raw=true' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+# Twitter - Part I
 
 **TwitterClient** is a basic twitter app to read your tweets.
 
