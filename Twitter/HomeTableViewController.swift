@@ -14,6 +14,7 @@ class HomeTableViewController: UITableViewController {
     fileprivate var isMenuOpened: Bool = false
     
     var tweets = [NSDictionary]()
+    var userInfo = NSDictionary()
     var tweetNum: Int!
     let myRefreshControl = UIRefreshControl()
 
