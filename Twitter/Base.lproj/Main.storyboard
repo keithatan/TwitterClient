@@ -200,6 +200,34 @@
             </objects>
             <point key="canvasLocation" x="3912.8000000000002" y="-296.40179910044981"/>
         </scene>
+        <!--Side Menu View Controller-->
+        <scene sceneID="UPr-dF-ed2">
+            <objects>
+                <viewController id="KYZ-FM-xMt" customClass="SideMenuViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AfS-GK-0cf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jC-9c-G1I">
+                                <rect key="frame" x="250" y="83" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="FqV-eW-oRS"/>
+                                    <constraint firstAttribute="height" constant="20" id="wwT-kI-x07"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9jC-9c-G1I" firstAttribute="leading" secondItem="CkC-Hv-ulg" secondAttribute="leading" constant="250" id="qyb-eW-MG6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CkC-Hv-ulg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IPR-45-73x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="652" y="-1008"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="vcA-Hc-aV6">
             <objects>

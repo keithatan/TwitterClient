@@ -8,6 +8,10 @@
 import UIKit
 
 class HomeTableViewController: UITableViewController {
+    let sideMenu = SideMenuViewController()
+    
+    fileprivate let menuWidth: CGFloat = 300
+    fileprivate var isMenuOpened: Bool = false
     
     var tweets = [NSDictionary]()
     var tweetNum: Int!
@@ -15,6 +19,10 @@ class HomeTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupMenuController()
+        let panGesture = UIPanGestureRecognizer(target:self, action: #selector(handlePan))
+        self.view.addGestureRecognizer(panGesture)
+        
         self.tweetNum = 20;
         self.loadTweets();
         
@@ -28,6 +36,86 @@ class HomeTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    
+    
+    @objc func setupMenuController(){
+        //ideMenu.view.backgroundColor = .yellow
+        sideMenu.view.frame = CGRect(x: -menuWidth, y: 0, width: menuWidth, height: self.view.frame.height)
+        let mainWindow = UIApplication.shared.keyWindow
+        mainWindow?.addSubview(sideMenu.view)
+        // Must have this so the other view will work
+        addChild(sideMenu)
+    }
+    
+    fileprivate func performAnimations(transform:CGAffineTransform){
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut,
+                       animations: {
+                        self.sideMenu.view.transform = transform
+                        self.navigationController?.view.transform = transform
+        }, completion: nil)
+        
+        
+    }
+    
+    @objc func handlePan(gesture: UIPanGestureRecognizer){
+        let translation = gesture.translation(in: self.view)
+        // Slide menu into the screen
+        
+        if (gesture.state == .changed) {
+            // Adding bounds to movement
+            var x = translation.x
+            x = min(menuWidth, x)
+            x = max(0,x)
+            
+            if (isMenuOpened == true){
+                x+=menuWidth
+            }
+            
+            // Handles the movement
+            self.sideMenu.view.transform = CGAffineTransform(translationX: translation.x, y: 0)
+            self.navigationController?.view.transform = CGAffineTransform(translationX: translation.x, y: 0)
+        }
+        else if (gesture.state == .ended){
+            handlePanEnd(gesture: gesture)
+        }
+    }
+    
+    fileprivate func handlePanEnd(gesture: UIPanGestureRecognizer){
+        let translation = gesture.translation(in: self.view)
+        // Check location to figure out movement
+        
+        if isMenuOpened {
+            
+            if (abs(translation.x) < menuWidth / 2) {
+                handleOpen()
+            }
+            else {
+                handleClose()
+            }
+            
+        }
+        else{
+            if translation.x < menuWidth / 2{
+                handleClose();
+            }
+            else{
+                handleOpen()
+            }
+            
+        }
+    }
+    
+    
+    @objc func handleOpen(){
+        self.isMenuOpened = true
+        self.performAnimations(transform:CGAffineTransform(translationX: self.menuWidth, y: 0))
+    }
+    
+    @objc func handleClose(){
+        self.isMenuOpened = false
+        self.performAnimations(transform: .identity)
     }
     
     override func viewDidAppear(_ animated: Bool) {
